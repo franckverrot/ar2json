@@ -4,7 +4,7 @@ module Ar2json
     columns = [columns] if columns.is_a?(Symbol)
     projections = '\'{'
     projections << columns.map do |col|
-      ":#{col.to_s}=>' || '\"' || #{col.to_s} || '\"'"
+      "\"#{col.to_s}\":' || '\"' || #{col.to_s} || '\"'"
     end.join('|| \',')
     projections << '|| \'}\' as json'
     sql = self.select(projections).to_sql

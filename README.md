@@ -1,6 +1,6 @@
 # ar2json
 
-* http://github.com/cesario/ar2json
+* https://github.com/cesario/ar2json
 
 ## DESCRIPTION:
 
@@ -32,12 +32,12 @@ In the project's Gemfile add
 
 Say Product is your model:
 
-  class Product < ActiveRecord::Base
-  end
+    class Product < ActiveRecord::Base
+    end
 
 Use `to_json` like this
 
-  Product.where(:color => 'blue').to_json
+    Product.where(:color => 'blue').to_json
 
 If your database looks like this
 
@@ -51,41 +51,38 @@ If your database looks like this
 
 `Product.where(:color => 'blue').to_json` will return
 
-  [
-    { :id => 1, :name => 'Foo' },
-    { :id => 2, :name => 'Baz' }
-  ]
+    [
+      { "id": "1", "name": "Foo" },
+      { "id": "2", "name": "Baz" }
+    ]
 
 
 ## Some benchmark now
 
 ### Lab
 
-```
-  ➜  uname -a
-  [...] Darwin 10.7.0 Darwin Kernel Version 10.7.0 [...]
-```
+    ➜  uname -a
+    [...] Darwin 10.7.0 Darwin Kernel Version 10.7.0 [...]
 
 ### SQLite3
 
-                                      user     system      total        real
-User.scoped.to_json                   0.230000   0.010000   0.240000 (  0.246796)
-User.all.to_json                      2.320000   0.080000   2.400000 (  2.430381)
-User.where(:id => [1,2]).to_json      0.180000   0.010000   0.190000 (  0.182994)
-User.where(:id => [1,2]).all.to_json  0.300000   0.020000   0.320000 (  0.322805)
-User.where(:id => 1).to_json          0.160000   0.010000   0.170000 (  0.196703)
-User.where(:id => 1).all.to_json      0.220000   0.010000   0.230000 (  0.230023)
-
+                                          user     system      total        real
+    User.scoped.to_json                   0.230000   0.010000   0.240000 (  0.246796)
+    User.all.to_json                      2.320000   0.080000   2.400000 (  2.430381)
+    User.where(:id => [1,2]).to_json      0.180000   0.010000   0.190000 (  0.182994)
+    User.where(:id => [1,2]).all.to_json  0.300000   0.020000   0.320000 (  0.322805)
+    User.where(:id => 1).to_json          0.160000   0.010000   0.170000 (  0.196703)
+    User.where(:id => 1).all.to_json      0.220000   0.010000   0.230000 (  0.230023)
 
 ### PostgreSQL
 
-                                      user     system      total        real
-User.scoped.to_json                   0.080000   0.010000   0.090000 (  0.223884)
-User.all.to_json                      2.200000   0.090000   2.290000 (  2.393640)
-User.where(:id => [1,2]).to_json      0.140000   0.010000   0.150000 (  0.256728)
-User.where(:id => [1,2]).all.to_json  0.270000   0.020000   0.290000 (  0.368916)
-User.where(:id => 1).to_json          0.140000   0.010000   0.150000 (  0.249957)
-User.where(:id => 1).all.to_json      0.200000   0.010000   0.210000 (  0.277496)
+                                          user     system      total        real
+    User.scoped.to_json                   0.080000   0.010000   0.090000 (  0.223884)
+    User.all.to_json                      2.200000   0.090000   2.290000 (  2.393640)
+    User.where(:id => [1,2]).to_json      0.140000   0.010000   0.150000 (  0.256728)
+    User.where(:id => [1,2]).all.to_json  0.270000   0.020000   0.290000 (  0.368916)
+    User.where(:id => 1).to_json          0.140000   0.010000   0.150000 (  0.249957)
+    User.where(:id => 1).all.to_json      0.200000   0.010000   0.210000 (  0.277496)
 
 
 ## REQUIREMENTS:

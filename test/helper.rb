@@ -1,9 +1,8 @@
 gem 'minitest'
 require 'minitest/benchmark'
-
 require 'active_record'
-
 require "ar2json/to_json"
+require "json"
 
 if ENV['use_pg']
   require 'pg'

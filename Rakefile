@@ -1,7 +1,10 @@
 # encoding: utf-8
-
-require 'rubygems'
-require 'hoe'
+begin
+  require 'hoe'
+  require 'json'
+rescue LoadError => e
+  raise "Please install the required gem: #{e.message}"
+end
 
 Hoe.plugin :gemspec
 
