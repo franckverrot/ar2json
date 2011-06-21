@@ -1,0 +1,8 @@
+.*.swp
+*.tmproj
+tags
+pkg
+*~
+Gemfile.lock
+*.sqlite3
+*.gem

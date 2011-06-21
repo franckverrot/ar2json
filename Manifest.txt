@@ -1,0 +1,15 @@
+.autotest
+.rvmrc
+CHANGELOG.md
+Gemfile
+Gemfile.lock
+Manifest.txt
+README.md
+Rakefile
+ar2json.gemspec
+lib/ar2json.rb
+lib/ar2json/railtie.rb
+lib/ar2json/to_json.rb
+test/helper.rb
+test/test_ar2json.rb
+test/test_performance.rb
