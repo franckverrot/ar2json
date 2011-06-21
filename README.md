@@ -35,10 +35,6 @@ Say Product is your model:
     class Product < ActiveRecord::Base
     end
 
-Use `to_json` like this
-
-    Product.where(:color => 'blue').to_json
-
 If your database looks like this
 
                 +---------------------------------+
@@ -52,8 +48,17 @@ If your database looks like this
 `Product.where(:color => 'blue').to_json` will return
 
     [
-      { "id": "1", "name": "Foo" },
-      { "id": "2", "name": "Baz" }
+      { "id": "1", "name": "Foo", "color": "blue" },
+      { "id": "2", "name": "Baz", "color": "blue" }
+    ]
+
+You can also tell `to_json` to only use the columns you specify:
+
+    #=> Product.where(:color => 'blue').to_json([:id])
+
+    [
+      { "id": "1" },
+      { "id": "2" }
     ]
 
 
