@@ -1,2 +1,3 @@
 notifications:
-  webhooks: http://travis-webhooks.heroku.com/notifications
+  webhooks:
+    - http://travis-webhooks.heroku.com/notifications
